@@ -1,5 +1,3 @@
-use diesel;
-
 fn main() {
-    
+    print!("Hello");
 }
