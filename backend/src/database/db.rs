@@ -15,3 +15,12 @@ pub async fn create_database() -> Result<DatabaseConnection, DbErr>{
     let db = Database::connect(opt).await;
     return db;
 }
+pub async fn get_client_db() -> Result<DatabaseConnection,std::io::Error>{
+    Ok(match create_database().await {
+        Ok(db) => db,
+        Err(e) => {
+            eprintln!("Database connection failed: {}", e);
+            return Err(std::io::Error::new(std::io::ErrorKind::Other, e));
+        }
+    })
+}
