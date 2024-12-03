@@ -1,2 +1,2 @@
-pub mod character;
-pub mod anime;
+pub mod character_repo;
+pub mod anime_repo;

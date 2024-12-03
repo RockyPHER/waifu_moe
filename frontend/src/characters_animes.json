@@ -30,7 +30,8 @@
   ],
   "characters": [
     {
-      "id": 101,
+      "id": 1,
+      "anime_id": 1,
       "name": "Denji",
       "bio": "A young man who becomes the Chainsaw Man after making a contract with Pochita.",
       "age": 16,
@@ -46,7 +47,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 102,
+      "id": 2,
+      "anime_id": 1,
       "name": "Power",
       "bio": "A fiend who works with Denji in the Public Safety Devil Hunters.",
       "age": 19,
@@ -62,7 +64,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 103,
+      "id": 3,
+      "anime_id": 1,
       "name": "Makima",
       "bio": "A mysterious and manipulative Devil Hunter.",
       "age": 25,
@@ -78,7 +81,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 201,
+      "id": 4,
+      "anime_id": 2,
       "name": "Yuji Itadori",
       "bio": "A high school student turned Jujutsu Sorcerer after consuming Sukuna's finger.",
       "age": 17,
@@ -94,7 +98,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 202,
+      "id": 5,
+      "anime_id": 2,
       "name": "Megumi Fushiguro",
       "bio": "A stoic Jujutsu Sorcerer with the power of Ten Shadows Technique.",
       "age": 18,
@@ -110,7 +115,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 203,
+      "id": 6,
+      "anime_id": 2,
       "name": "Nobara Kugisaki",
       "bio": "A confident and skilled Jujutsu Sorcerer with a sharp tongue.",
       "age": 17,
@@ -126,7 +132,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 301,
+      "id": 7,
+      "anime_id": 3,
       "name": "Ken Takakura",
       "bio": "A high schooler caught up in strange supernatural events.",
       "age": 16,
@@ -142,7 +149,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 302,
+      "id": 8,
+      "anime_id": 3,
       "name": "Aira Shiratori",
       "bio": "Ken's friend and ally in their battle against spirits.",
       "age": 17,
@@ -158,7 +166,8 @@
       "createdAt": "2024-11-01"
     },
     {
-      "id": 303,
+      "id": 9,
+      "anime_id": 3,
       "name": "Momo",
       "bio": "An enigmatic figure who holds knowledge about the supernatural phenomena.",
       "age": 20,
