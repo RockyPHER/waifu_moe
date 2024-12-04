@@ -2,9 +2,20 @@
   import { ChevronLeft, ChevronRight, Circle } from "lucide-svelte";
   import Button from "./pagbutton.svelte";
   import denjiImage from "../../assets/characters/denjicard.jpg";
+  import { getCharacters } from "../../api/anime";
 
-  const numOfPages = 5;
-  const pages = Array.from({ length: numOfPages }, (_, i) => i + 1);
+  let characters = [];
+  /**
+   * @type {any[]}
+   */
+  let pages = [];
+
+  console.log(getCharacters());
+
+  getCharacters().then((chars) => {
+    characters = chars;
+    pages = Array.from({ length: characters.length }, (_, index) => index + 1);
+  });
 </script>
 
 <main>
