@@ -10,7 +10,17 @@ pub async fn get_animes(db: web::Data<DatabaseConnection>) -> impl Responder {
             HttpResponse::Ok().json(animes)
         }
         Err(err) => {
-            log::error!("Failed to fetch characters: {:?}", err);
+            HttpResponse::InternalServerError().body("Internal Server Error")
+        }
+    }
+}
+pub async fn get_anime(db: web::Data<DatabaseConnection>) -> impl Responder {
+    print!("hello");
+    match animes_services::get_animes_services(&**db).await {
+        Ok(anime) => {
+            HttpResponse::Ok().json(anime)
+        }
+        Err(err) => {
             HttpResponse::InternalServerError().body("Internal Server Error")
         }
     }
