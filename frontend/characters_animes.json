@@ -3,7 +3,6 @@
     {
       "id": 1,
       "name": "Chainsaw Man",
-      "characterID": [101, 102, 103],
       "origin": "Japan",
       "logoURL": "../assets/logos/chainsawlogo.png",
       "updatedAt": "2024-11-30",
@@ -12,7 +11,6 @@
     {
       "id": 2,
       "name": "Jujutsu Kaisen",
-      "characterID": [201, 202, 203],
       "origin": "Japan",
       "logoURL": "../assets/logos/jujutsulogo.png",
       "updatedAt": "2024-11-30",
@@ -21,7 +19,6 @@
     {
       "id": 3,
       "name": "Dandadan",
-      "characterID": [301, 302, 303],
       "origin": "Japan",
       "logoURL": "../assets/logos/dandadanlogo.png",
       "updatedAt": "2024-11-30",
