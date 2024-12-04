@@ -9,8 +9,8 @@ pub async fn get_animes_services(
     
     anime_repo::get_animes_repo(db).await
 }
-pub async fn get_anime_services(
+pub async fn get_anime_services(id: i64,
     db: &DatabaseConnection,
-) -> Result<Vec<Anime>, sea_orm::DbErr> {
-    anime_repo::get_anime_repo(db).await
+) -> Result<std::option::Option<Anime>, sea_orm::DbErr> {
+    anime_repo::get_anime_repo(id,db).await
 }

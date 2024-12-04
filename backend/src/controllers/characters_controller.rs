@@ -10,7 +10,7 @@ pub async fn get_characters(db: web::Data<DatabaseConnection>) -> impl Responder
         Ok(characters) => {
             HttpResponse::Ok().json(characters)
         }
-        Err(err) => {
+        Err(_err) => {
             HttpResponse::InternalServerError().body("Internal Server Error")
         }
     }
