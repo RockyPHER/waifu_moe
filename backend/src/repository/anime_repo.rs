@@ -11,3 +11,4 @@ pub async fn get_anime_repo(
 ) -> Result<std::option::Option<Anime>, sea_orm::DbErr> {
     Animes::find_by_id(id).one(db).await
 }
+
