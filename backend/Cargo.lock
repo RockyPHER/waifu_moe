@@ -336,6 +336,7 @@ dependencies = [
  "actix-web",
  "chrono",
  "dotenvy",
+ "log",
  "sea-orm",
  "serde",
  "tokio",
