@@ -1,11 +1,12 @@
-use actix_web::web;
+use actix_web::web::{self, route};
 
-use crate::controllers::animes_controller;
+use crate::controllers::{animes_controller, characters_controller};
 
 pub fn init_anime_routes(cfg: &mut web::ServiceConfig) {
     cfg.service(
         web::scope("/animes")
             .route("", web::get().to(animes_controller::get_animes))
-            .route("/{id}", web::get().to(animes_controller::get_anime)),
+            .route("/{id}", web::get().to(animes_controller::get_anime))
+            .route("/{id}/characters", web::get().to(animes_controller::get_anime_character)),
     );
 }
