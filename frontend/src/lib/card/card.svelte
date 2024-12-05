@@ -17,11 +17,11 @@
   <div class="absolute right-[12%] top-1/2 -translate-y-1/2">
     {#each characters as character}
       <div
-        class="absolute w-[320px] h-[400px] flex justify-center items-center shadow-md shadow-black rounded-xl overflow-hidden"
+        class="w-[320px] h-[400px] flex justify-center items-center shadow-md shadow-black rounded-xl overflow-hidden"
       >
         <img
           class="w-full h-full object-cover"
-          src={`${character.cardUrl}`}
+          src={`${character.card_url}`}
           alt={`${character.name}`}
         />
       </div>
