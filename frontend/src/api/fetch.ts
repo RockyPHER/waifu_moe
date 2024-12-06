@@ -9,3 +9,7 @@ export async function getAnimes(): Promise<axios.AxiosResponse<Anime[], any>> {
 export async function getCharacters(): Promise<axios.AxiosResponse<Character[], any>> {
     return await api.get<Character[]>("/characters");
 }
+
+export async function getCharactersByAnime(id: number): Promise<axios.AxiosResponse<Character[], any>> {
+    return await api.get<Character[]>(`/animes/${id}/characters`);
+}
