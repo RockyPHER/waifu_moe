@@ -26,9 +26,8 @@ pub async fn get_anime_character(path: web::Path<i64>, db: web::Data<DatabaseCon
         Err(_) => HttpResponse::InternalServerError().body("Internal Server Error")
     }
 }
-pub async fn patch_character_likes(path: web::Path<i64>, path_character: web::Path<String>, db: web::Data<DatabaseConnection>) -> impl Responder {
-    let path_id: i64 = path.into_inner();
-    let character = path_character.into_inner();
+pub async fn patch_character_likes(path: web::Path<(i64, String)>, db: web::Data<DatabaseConnection>) -> impl Responder {
+    let (path_id, character) = path.into_inner();
     match animes_services::patch_character_likes_service(path_id,character,&**db).await{
         Ok(character) => HttpResponse::Ok().json(character),
         Err(_) => HttpResponse::InternalServerError().body("Internal Server Error")
