@@ -18,13 +18,11 @@
   });
 
   const nextPage = () => {
-    currentPage = currentPage + (1 % characters.length);
+    currentPage = (currentPage % 3) + 1;
   };
   const prevPage = () => {
-    currentPage = currentPage - (1 % characters.length);
+    currentPage = ((currentPage - 2 + 3) % 3) + 1;
   };
-
-  $: console.log(currentPage);
 </script>
 
 <main>
@@ -33,11 +31,12 @@
       {#each characters as character}
         {#if character.anime_id === anime.id}
           <Pannel
+            bind:currentPage
             pannelImage={character.pannel_url}
             numOfPages={3}
             {nextPage}
             {prevPage}
-            show={currentPage === character.anime_id ? true : false}
+            show={currentPage === character.id ? true : false}
           >
             <Card cardImage={character.card_url} cardName={character.name} />
           </Pannel>
