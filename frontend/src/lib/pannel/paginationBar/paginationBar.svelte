@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="absolute top-[82%] left-1/2 -translate-x-1/2 flex justify-center items-center mt-4"
+  class="absolute p-4 top-[82%] left-1/2 -translate-x-1/2 flex justify-center bg-gradient-radial from-black to-transparent items-center mt-4"
 >
   <Button onClick={prevPage}>
     <ChevronLeft size={50} color="#D9D9D9" />
@@ -37,3 +37,13 @@
     <ChevronRight size={50} color="#D9D9D9" />
   </Button>
 </div>
+
+<style>
+  .bg-gradient-radial {
+    background-image: radial-gradient(
+      closest-side ellipse at center,
+      #000000,
+      transparent
+    );
+  }
+</style>
