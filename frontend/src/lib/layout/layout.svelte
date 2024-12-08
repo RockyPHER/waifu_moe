@@ -1,9 +1,9 @@
 <script>
   import PaginationCol from "./paginationCol/paginationCol.svelte";
 
-  export let animeLogo;
   export let animeID;
   export let showAnime;
+  export let animeLogo;
   export let currentAnimeIdx;
 
   let width;
