@@ -1,15 +1,47 @@
 <script>
+  import PaginationCol from "./paginationCol/paginationCol.svelte";
+
   export let animeLogo;
-  export let animeName;
+  export let animeID;
   export let showAnime;
+  export let currentAnimeIdx;
+
+  let width;
+  let height;
+
+  switch (animeID) {
+    case 1:
+      width = "176px";
+      height = "99px";
+      break;
+    case 2:
+      width = "220px";
+      height = "50px";
+      break;
+    case 3:
+      width = "200px";
+      height = "40px";
+      break;
+    default:
+      width = "176px";
+      height = "99px";
+      break;
+  }
 </script>
 
-<div class="overflow-hidden" style="display: {showAnime ? 'block' : 'none'}">
+<div
+  class="overflow-hidden w-screen h-screen"
+  style="display: {showAnime ? 'relative' : 'none'}"
+>
+  <PaginationCol bind:currentAnimeIdx />
   <div
-    class="absolute z-20 h-16 w-full top-0 left-0 flex items-center justify-start p-10 bg-gradient-to-b from-black to-transparent bg-opacity-40"
+    class="absolute z-20 h-16 w-full top-0 left-0 flex items-center justify-start p-10 bg-black backdrop-blur bg-opacity-40"
   >
-    <p class="text-2xl font-bold text-white">{animeName}</p>
-    <img class="w-16 h-16" src={`${animeLogo}`} alt="logo" />
+    <img
+      style="width: {width}; height: {height};"
+      src={`${animeLogo}`}
+      alt="logo"
+    />
   </div>
   <slot />
 </div>

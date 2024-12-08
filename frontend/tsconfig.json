@@ -11,10 +11,11 @@
     "moduleResolution": "bundler",
     "strict": true,
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "isolatedModules": true,
     "moduleDetection": "force"
   },
-  "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte", "vite.config.ts"],
+  "include": ["src/**/*.ts", "src/**/*.js", "vite.config.ts"],
+  "exclude": ["**/*.svelte"],
   "references": [{"path": "./tsconfig.node.json","noEmit": false}]
 }

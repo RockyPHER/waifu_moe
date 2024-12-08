@@ -1,6 +1,5 @@
 <script>
-  // @ts-nocheck
-
+  import { Loader } from "lucide-svelte";
   import { getAnimes, getCharacters, getCharactersByAnime } from "./api/fetch";
   import Card from "./lib/card/card.svelte";
   import Layout from "./lib/layout/layout.svelte";
@@ -54,21 +53,24 @@
 
 <main>
   {#if isLoading}
-    <div
-      class="w-screen h-screen bg-gray-400 flex justify-center items-center text-3xl font-bold"
-    >
-      Loading...
+    <div class="w-screen h-screen bg-gray-300 flex justify-center items-center">
+      <div
+        class="flex flex-col justify-center items-center bg-gray-400 rounded p-10"
+      >
+        <Loader size={50} color="black" />
+        <p class="text-center text-white text-2xl font-bold">Loading...</p>
+      </div>
     </div>
   {:else if animes.length > 0 && characters.length > 0}
     {#each animes as anime}
       <Layout
+        bind:currentAnimeIdx
         animeLogo={anime.logo_url}
-        animeName={anime.name}
+        animeID={anime.id}
         showAnime={currentAnimeIdx === anime.id - 1}
       >
         {#each charactersArray[anime.id] as character, index}
           <Pannel
-            bind:currentAnimeIdx
             bind:currentPageIdx
             pannelImage={character.pannel_url}
             numOfPages={animeCharacterCount[anime.id]}
@@ -80,6 +82,12 @@
       </Layout>
     {/each}
   {:else}
-    <p>No data available.</p>
+    <div class="w-screen h-screen bg-gray-300 flex justify-center items-center">
+      <p
+        class="text-center text-white text-2xl font-bold bg-red-500 p-2 rounded"
+      >
+        No data available.
+      </p>
+    </div>
   {/if}
 </main>

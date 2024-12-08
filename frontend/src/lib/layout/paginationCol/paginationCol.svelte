@@ -1,11 +1,6 @@
 <script>
-  // @ts-nocheck
-
   import Button from "./colButton.svelte";
   import { Circle } from "lucide-svelte";
-  /**
-   * @type {number}
-   */
   export let currentAnimeIdx;
 
   const handleClick = (idx) => {
@@ -15,7 +10,7 @@
 </script>
 
 <div
-  class="absolute p-3 flex flex-col justify-center items-center gap-2 top-1/2 -translate-y-1/2 right-0"
+  class="absolute z-20 p-3 flex flex-col justify-center items-center gap-2 top-1/2 -translate-y-1/2 right-10 bg-gradient-radial"
 >
   {#each Array(3) as _, index}
     {#if index === currentAnimeIdx}
@@ -32,3 +27,13 @@
     {/if}
   {/each}
 </div>
+
+<style>
+  .bg-gradient-radial {
+    background: radial-gradient(
+      closest-side ellipse at center,
+      #000000,
+      transparent
+    );
+  }
+</style>

@@ -1,14 +1,10 @@
 <script>
-  // @ts-nocheck
-
   import PaginationBar from "./paginationBar/paginationBar.svelte";
-  import PaginationCol from "./paginationCol/paginationCol.svelte";
 
-  export let pannelImage;
   export let showChar; // Boolean to control visibility
-  export let currentAnimeIdx;
-  export let currentPageIdx;
   export let numOfPages = 1;
+  export let pannelImage;
+  export let currentPageIdx;
 </script>
 
 {#if showChar}
@@ -19,7 +15,6 @@
     <div class="absolute z-10 w-full h-full top-0 left-0 bg-gradient-radial">
       <slot />
       <PaginationBar bind:currentPageIdx {numOfPages} />
-      <PaginationCol bind:currentAnimeIdx />
     </div>
   </div>
 {/if}
