@@ -20,12 +20,12 @@ pub async fn get_anime_character_service(
     character_repo::get_anime_character_repo(id, db).await
 }
 pub async fn patch_character_likes_service(
-    id: i64,
-    name: String,
+    anime_name: String,
+    character_name: String,
     db: &DatabaseConnection,
 ) -> Result<Character, sea_orm::DbErr> {
     let add_likes: i64 = 1;
-    match character_repo::patch_character_likes_repo(id, name.clone(), db).await {
+    match character_repo::patch_character_likes_repo(anime_name, character_name.clone(), db).await {
         Ok(Some(character)) => {
             let mut active_character = ActiveModel::from(character);
 
@@ -42,7 +42,35 @@ pub async fn patch_character_likes_service(
         }
         Ok(None) => Err(sea_orm::DbErr::Custom(format!(
             "Character '{}' not found",
-            name
+            character_name
+        ))),
+        Err(err) => Err(err), // Propagate database error
+    }
+}
+pub async fn patch_character_dislikes_service(
+    anime_name: String,
+    character_name: String,
+    db: &DatabaseConnection,
+) -> Result<Character, sea_orm::DbErr> {
+    let add_likes: i64 = 1;
+    match character_repo::patch_character_dislikes_repo(anime_name, character_name.clone(), db).await {
+        Ok(Some(character)) => {
+            let mut active_character = ActiveModel::from(character);
+
+            // Update the number of likes
+            if let Some(current_dislikes) = active_character.num_dislikes.unwrap() {
+                active_character.num_dislikes = Set(Some(current_dislikes + add_likes));
+            } else {
+                active_character.num_dislikes = Set(Some(add_likes));
+            }
+
+            // Save the updated ActiveModel
+            let updated_character = active_character.update(db).await;
+            Ok(updated_character.unwrap())
+        }
+        Ok(None) => Err(sea_orm::DbErr::Custom(format!(
+            "Character '{}' not found",
+            character_name
         ))),
         Err(err) => Err(err), // Propagate database error
     }

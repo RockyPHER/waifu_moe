@@ -22,11 +22,14 @@ pub struct Model {
 }
 
 #[derive(Copy, Clone, Debug, EnumIter, DeriveRelation)]
-pub enum Relation {}
+pub enum Relation {
+    #[sea_orm(belongs_to = "super::schema_animes::Entity", from = "Column::AnimeId", to = "super::schema_animes::Column::Id")]
+    Animes,
+}
 
 impl Related<super::schema_animes::Entity> for Entity {
     fn to() -> RelationDef {
-        super::schema_animes::Relation::Character.def()
+        super::schema_characters::Relation::Animes.def()
     }
 }
 

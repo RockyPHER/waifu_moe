@@ -12,8 +12,12 @@ pub fn init_anime_routes(cfg: &mut web::ServiceConfig) {
                 web::get().to(animes_controller::get_anime_character),
             )
             .route(
-                "/{id}/characters/{characters_name}/likes",
+                "/{animes}/characters/{characters_name}/likes",
                 web::patch().to(animes_controller::patch_character_likes),
+            )
+            .route(
+                "/{animes}/characters/{characters_name}/dislikes",
+                web::patch().to(animes_controller::patch_character_dislikes),
             ),
     );
 }
