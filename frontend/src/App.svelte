@@ -5,14 +5,14 @@
   import Layout from "./lib/layout/layout.svelte";
   import Pannel from "./lib/pannel/pannel.svelte";
 
-  let characters = [];
   let animes = [];
-  let currentAnimeIdx = 0; // Index for currently displayed anime
-  let currentPageIdx = 0; // Index for currently displayed character
   let NumAnimes = 0;
-  let animeCharacterCount = {}; // Object to store character count per anime
+  let characters = [];
   let isLoading = true;
+  let currentPageIdx = 0; // Index for currently displayed character
+  let currentAnimeIdx = 0; // Index for currently displayed anime
   let charactersArray = {};
+  let animeCharacterCount = {}; // Object to store character count per anime
 
   // Fetch data for animes and characters
   async function fetchData() {

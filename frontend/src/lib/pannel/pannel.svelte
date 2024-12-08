@@ -2,8 +2,8 @@
   import PaginationBar from "./paginationBar/paginationBar.svelte";
 
   export let showChar; // Boolean to control visibility
-  export let numOfPages = 1;
   export let pannelImage;
+  export let numOfPages = 1;
   export let currentPageIdx;
 </script>
 
