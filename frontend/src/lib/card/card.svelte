@@ -17,7 +17,11 @@
         />
       </div>
       <div class="flip-box-back">
-        <img src={`${backCard}`} alt={`${cardName}`} />
+        <img
+          class="rounded-[10px] object-cover"
+          src={`${backCard}`}
+          alt={`${cardName}`}
+        />
       </div>
     </div>
   </div>

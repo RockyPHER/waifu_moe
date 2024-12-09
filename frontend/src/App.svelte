@@ -62,25 +62,30 @@
       </div>
     </div>
   {:else if animes.length > 0 && characters.length > 0}
-    {#each animes as anime}
-      <Layout
-        bind:currentAnimeIdx
-        animeLogo={anime.logo_url}
-        animeID={anime.id}
-        showAnime={currentAnimeIdx === anime.id - 1}
-      >
-        {#each charactersArray[anime.id] as character, index}
-          <Pannel
-            bind:currentPageIdx
-            pannelImage={character.pannel_url}
-            numOfPages={animeCharacterCount[anime.id]}
-            showChar={currentPageIdx === index}
-          >
-            <Card cardImage={character.card_url} cardName={character.name} />
-          </Pannel>
-        {/each}
-      </Layout>
-    {/each}
+    <div class="w-auto h-auto flex flex-col">
+      {#each animes as anime}
+        <Layout
+          bind:currentAnimeIdx
+          animeLogo={anime.logo_url}
+          animeID={anime.id}
+        >
+          <div class="h-full w-auto flex">
+            {#each charactersArray[anime.id] as character, index}
+              <Pannel
+                bind:currentPageIdx
+                pannelImage={character.pannel_url}
+                numOfPages={animeCharacterCount[anime.id]}
+              >
+                <Card
+                  cardImage={character.card_url}
+                  cardName={character.name}
+                />
+              </Pannel>
+            {/each}
+          </div>
+        </Layout>
+      {/each}
+    </div>
   {:else}
     <div class="w-screen h-screen bg-gray-300 flex justify-center items-center">
       <p

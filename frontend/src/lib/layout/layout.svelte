@@ -1,5 +1,6 @@
 <script>
   import PaginationCol from "./paginationCol/paginationCol.svelte";
+  import { fade } from "svelte/transition";
 
   export let animeID;
   export let showAnime;
@@ -31,7 +32,7 @@
 
 <div
   class="overflow-hidden w-screen h-screen"
-  style="display: {showAnime ? 'relative' : 'none'}"
+  style="display: {showAnime ? 'block' : 'none'}"
 >
   <PaginationCol bind:currentAnimeIdx />
   <div
