@@ -4,6 +4,8 @@
   import Card from "./lib/card/card.svelte";
   import Layout from "./lib/layout/layout.svelte";
   import Pannel from "./lib/pannel/pannel.svelte";
+  import PaginationBar from "./lib/components/paginationBar/main.svelte";
+  import PaginationCol from "./lib/components/paginationCol/main.svelte";
 
   let animes = [];
   let NumAnimes = 0;
@@ -51,7 +53,7 @@
   fetchData().then(() => console.log(charactersArray));
 </script>
 
-<main>
+<main class="w-screen h-screen overflow-hidden">
   {#if isLoading}
     <div class="w-screen h-screen bg-gray-300 flex justify-center items-center">
       <div
@@ -62,17 +64,22 @@
       </div>
     </div>
   {:else if animes.length > 0 && characters.length > 0}
-    <div class="w-auto h-auto flex flex-col">
+    <div
+      style="height: {NumAnimes *
+        100}vh; transform: translateY(-{currentAnimeIdx * 100}vh);"
+      class="relative flex flex-col transition-all"
+    >
+      <PaginationCol bind:currentAnimeIdx />
+      <PaginationBar bind:currentPageIdx numOfPages={NumAnimes} />
       {#each animes as anime}
-        <Layout
-          bind:currentAnimeIdx
-          animeLogo={anime.logo_url}
-          animeID={anime.id}
-        >
-          <div class="h-full w-auto flex">
+        <Layout animeLogo={anime.logo_url} animeID={anime.id}>
+          <div
+            class="relative h-screen flex"
+            style="transform: translateX(-{currentPageIdx * 100}vw);
+            width: {charactersArray[anime.id].length * 100}vw"
+          >
             {#each charactersArray[anime.id] as character, index}
               <Pannel
-                bind:currentPageIdx
                 pannelImage={character.pannel_url}
                 numOfPages={animeCharacterCount[anime.id]}
               >
